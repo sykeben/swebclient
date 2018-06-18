@@ -124,5 +124,8 @@
   <ItemGroup>
     <None Include="Resources\Home %28Blue, Flat-Ish%29 16x16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Refresh View 16x16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
