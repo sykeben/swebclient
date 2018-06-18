@@ -49,7 +49,7 @@ Partial Class Main
         Me.AppFrame.Name = "AppFrame"
         Me.AppFrame.Size = New System.Drawing.Size(800, 426)
         Me.AppFrame.TabIndex = 2
-        Me.AppFrame.Url = New System.Uri("https://sykeben.github.io/swebserver/", System.UriKind.Absolute)
+        Me.AppFrame.Url = New System.Uri("http://example.com", System.UriKind.Absolute)
         '
         'TitleLeader
         '

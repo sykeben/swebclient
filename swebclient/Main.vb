@@ -1,19 +1,22 @@
 ﻿Public Class Main
     Dim Quitting As Boolean
+    Dim HomeUrl As String
 
     Private Sub HomeButton_Click(sender As Object, e As EventArgs) Handles HomeButton.Click
-        If Not AppFrame.Url = New Uri("https://sykeben.github.io/swebserver/") Then
+        If Not AppFrame.Url = New Uri(HomeUrl) Then
             Dim Answer As DialogResult = MessageBox.Show("Are you sure you want to go home?",
             "Confirm", MessageBoxButtons.YesNo)
             Select Case Answer
                 Case Windows.Forms.DialogResult.Yes
-                    AppFrame.Navigate("https://sykeben.github.io/swebserver/")
+                    AppFrame.Navigate(HomeUrl)
             End Select
         End If
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Quitting = False
+        HomeUrl = "https://sykeben.github.io/swebserver/"
+        AppFrame.Navigate(HomeUrl)
     End Sub
 
     Private Sub Main_FormClosing(ByVal sender As Object,
@@ -38,6 +41,9 @@
 
     Private Sub AppFrame_Navigated(sender As Object, e As WebBrowserNavigatedEventArgs) Handles AppFrame.Navigated
         Title.Text = AppFrame.DocumentTitle
+        If AppFrame.Url = New Uri(HomeUrl) Then
+            Title.Text = "Home"
+        End If
     End Sub
 
     Private Sub AppFrame_Navigating(sender As Object, e As WebBrowserNavigatingEventArgs) Handles AppFrame.Navigating
